@@ -1,8 +1,11 @@
 import request from '@/utils/axiosReq'
 
+import request2 from '@/utils/axiosReq2'
+
+
 export function loginReq(data) {
-  return request({
-    url: '/integration-front/user/loginValid',
+  return request2({
+    url: '/login',
     data,
     method: 'post',
     bfLoading: false,
@@ -12,8 +15,8 @@ export function loginReq(data) {
 }
 
 export function getInfoReq() {
-  return request({
-    url: '/integration-front/user/getUserInfo',
+  return request2({
+    url: '/userinfo',
     bfLoading: false,
     method: 'post',
     isAlertErrorMsg: false

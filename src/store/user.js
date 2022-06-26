@@ -39,9 +39,9 @@ export const useUserStore = defineStore('user', {
       return new Promise((resolve, reject) => {
         loginReq(data)
           .then((res) => {
-            if (res.code === 20000) {
+            if (res.code === 200) {
               //commit('SET_Token', res.data?.jwtToken)
-              setToken(res.data?.jwtToken)
+              setToken(res.data?.access_token)
               resolve(null)
             } else {
               reject(res)
@@ -69,6 +69,7 @@ export const useUserStore = defineStore('user', {
               data.roles = ['admin']
               localStorage.setItem('roles', JSON.stringify(data.roles))
             }
+
             const { roles, username } = data
             this.M_username(username)
             this.M_roles(roles)
