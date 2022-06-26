@@ -12,7 +12,7 @@ const service = axios.create()
 service.interceptors.request.use(
   (request) => {
     // token setting
-    request.headers['AUTHORIZE_TOKEN'] = getToken()
+    request.headers['Authorization'] = getToken()
     /* download file*/
     if (request.isDownLoadFile) {
       request.responseType = 'blob'
